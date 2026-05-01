@@ -156,7 +156,7 @@ Análise de Complexidade (Big O)**
 
 <div align="center">
 
-## BigO Complexity | Complexidade Big0
+## BigO Complexity | Complexidade BigO
 
 ---
 
