@@ -1,35 +1,37 @@
 package Trees.BinaryTree;
 
-public class Node {
-    private int value;
-    private Node left;
-    private Node right;
+public class Node<T extends Comparable<T>> {
+    private T value;
+    private Node<T> left;
+    private Node<T> right;
 
-    public Node(int value) {
+    public Node(T value) {
         this.value = value;
+        this.left = null;
+        this.right = null;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public Node getLeft() {
+    public Node<T> getLeft() {
         return left;
     }
 
-    public Node getRight() {
+    public Node<T> getRight() {
         return right;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
-    public void setLeft(Node left) {
+    public void setLeft(Node<T> left) {
         this.left = left;
     }
 
-    public void setRight(Node right) {
+    public void setRight(Node<T> right) {
         this.right = right;
     }
 }

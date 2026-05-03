@@ -1,43 +1,43 @@
 package Trees.BinaryTree;
 
-public class BinaryTree {
-    private Node node;
+public class BinaryTree<T extends Comparable<T>> {
+    private Node<T> root;
     private int size;
 
-    public BinaryTree(int value) {
-        this.node = new Node(value);
+    public BinaryTree(){
+        this.root = null;
     }
 
-    public BinaryTree(){}
+    public BinaryTree(T value) {
+        this.root = new Node<T>(value);
+    }
 
-    public BinaryTree(Node root){
-        this.node = root;
+    public BinaryTree(Node<T> root){
+        this.root = root;
     }
 
     public boolean isEmpty(){
-        return node == null;
+        return root == null;
     }
 
     public int size(){
         return size;
     }
 
-    public void insert(int value) {
-        node = insert(node, value);
+    public void insert(T value) {
+        root = insert(root, value);
     }
 
-    private Node insert(Node current, int value) {
+    private Node<T> insert(Node<T> current, T value) {
         if (current == null) {
             size++;
-            return new Node(value);
+            return new Node<T>(value);
         }
-        if (value < current.getValue()) {
+        if (value.compareTo(current.getValue()) < 0) {
             current.setLeft(insert(current.getLeft(), value));
         } else {
             current.setRight(insert(current.getRight(), value));
         }
         return current;
     }
-
-
 }
