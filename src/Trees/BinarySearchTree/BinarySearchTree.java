@@ -30,51 +30,26 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         } else if (compareResult > 0) {
             current.setRight(insert(current.getRight(), value));
         }
-
         return current;
-    }
-
-    public void inOrder() {
-        inOrder(root);
-    }
-
-    private void inOrder(Node<T> current) {
-        if (current == null) {
-            return;
-        }
-        inOrder(current.getLeft());
-        System.out.println(current.getValue());
-        inOrder(current.getRight());
-    }
-
-    public void preOrder() {
-        preOrder(root);
-    }
-
-    private void preOrder(Node<T> current) {
-        if (current == null) {
-            return;
-        }
-        System.out.println(current.getValue());
-        preOrder(current.getLeft());
-        preOrder(current.getRight());
-    }
-
-    public void postOrder() {
-        postOrder(root);
-    }
-
-    private void postOrder(Node<T> current) {
-        if (current == null) {
-            return;
-        }
-        postOrder(current.getLeft());
-        postOrder(current.getRight());
-        System.out.println(current.getValue());
     }
 
     public boolean contains(T value) {
         return search(root, value);
+    }
+
+    public Node<T> containsNode(T value) {
+        return returnNode(root, value);
+    }
+
+    private Node<T> returnNode(Node<T> current, T value) {
+        if (current == null) return null;
+
+        int compareResult = value.compareTo(current.getValue());
+
+        if (compareResult == 0) return current;
+        if (compareResult < 0) return returnNode(current.getLeft(), value);
+
+        return returnNode(current.getRight(), value);
     }
 
     private boolean search(Node<T> current, T value) {
@@ -110,5 +85,66 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
             current = current.getRight();
         }
         return current.getValue();
+    }
+
+    public void delete(T value) {
+        root = delete(root, value);
+    }
+
+    private Node<T> delete(Node<T> current, T value) {
+        if (current == null) return null;
+
+        int compareResult = value.compareTo(current.getValue());
+
+        if (compareResult < 0) {
+            current.setLeft(delete(current.getLeft(), value));
+        } else if (compareResult > 0) {
+            current.setRight(delete(current.getRight(), value));
+        } else {
+            if (current.getLeft() == null && current.getRight() == null) {
+                size--;
+                return null;
+            }
+
+            if (current.getLeft() == null) {
+                size--;
+                return current.getRight();
+            }
+
+            if (current.getRight() == null) {
+                size--;
+                return current.getLeft();
+            }
+
+            Node<T> successor = findMinNode(current.getRight());
+            current.setValue(successor.getValue());
+            current.setRight(delete(current.getRight(), successor.getValue()));
+        }
+        return current;
+    }
+
+    protected Node<T> findMinNode(Node<T> node) {
+        while (node.getLeft() != null) {
+            node = node.getLeft();
+        }
+        return node;
+    }
+
+    public void printTree() {
+        printTree(root, 0);
+    }
+
+    private void printTree(Node<T> node, int level) {
+        if (node == null) return;
+
+        printTree(node.getRight(), level + 1);
+
+        for (int i = 0; i < level; i++) {
+            System.out.print("    ");
+        }
+
+        System.out.println(node.getValue());
+
+        printTree(node.getLeft(), level + 1);
     }
 }

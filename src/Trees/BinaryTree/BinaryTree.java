@@ -5,6 +5,7 @@ import java.util.Queue;
 public class BinaryTree<T> {
     protected Node<T> root;
     protected int size;
+    protected int height;
 
     public boolean isEmpty() {
         return root == null;
@@ -45,5 +46,44 @@ public class BinaryTree<T> {
                 queue.add(current.getRight());
             }
         }
+    }
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node<T> current) {
+        if (current == null) {
+            return;
+        }
+        inOrder(current.getLeft());
+        System.out.print(current.getValue() + " ");
+        inOrder(current.getRight());
+    }
+
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node<T> current) {
+        if (current == null) {
+            return;
+        }
+        System.out.print(current.getValue() + " ");
+        preOrder(current.getLeft());
+        preOrder(current.getRight());
+    }
+
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node<T> current) {
+        if (current == null) {
+            return;
+        }
+        postOrder(current.getLeft());
+        postOrder(current.getRight());
+        System.out.print(current.getValue() + " ");
     }
 }

@@ -15,13 +15,17 @@ public class Main {
         integerBinarySearchTree.insert(11);
         integerBinarySearchTree.insert(12);
         integerBinarySearchTree.insert(13);
-
+        integerBinarySearchTree.printTree();
+        System.out.println("------------------");
+        System.out.println("Preorder Traversal");
         integerBinarySearchTree.preOrder();
-        System.out.println("------------------");
+        System.out.println("\n------------------");
+        System.out.println("Inorder Traversal");
         integerBinarySearchTree.inOrder();
-        System.out.println("------------------");
+        System.out.println("\n------------------");
+        System.out.println("Postorder Traversal");
         integerBinarySearchTree.postOrder();
-        System.out.println("------------------");
+        System.out.println("\n------------------");
         System.out.println("Value 20 exists? " + integerBinarySearchTree.contains(20));
         System.out.println("------------------");
         System.out.println("Value 30 exists? " + integerBinarySearchTree.contains(30));
@@ -32,5 +36,45 @@ public class Main {
         System.out.println("------------------");
         System.out.println("Min value: " + integerBinarySearchTree.findMin());
         System.out.println("------------------");
+        integerBinarySearchTree.delete(30);
+        System.out.println("Value 30 exists? " + integerBinarySearchTree.contains(30));
+        System.out.println("------------------");
+        integerBinarySearchTree.printTree();
+        System.out.println("\n------------------");
+
+        System.out.println("AVL Tree");
+        System.out.println("------------------");
+        AVLTree<Integer> integerAVLTree = new AVLTree<>();
+        integerAVLTree.insert(10);
+        integerAVLTree.insert(4);
+        integerAVLTree.insert(30);
+        integerAVLTree.insert(11);
+        integerAVLTree.insert(32);
+        integerAVLTree.insert(7);
+        integerAVLTree.insert(11);
+        integerAVLTree.insert(12);
+        integerAVLTree.insert(13);
+        integerAVLTree.printTree();
+        System.out.println("------------------");
+        System.out.println("Preorder Traversal");
+        integerAVLTree.preOrder();
+        System.out.println("\n------------------");
+        System.out.println("Inorder Traversal");
+        integerAVLTree.inOrder();
+        System.out.println("\n------------------");
+        System.out.println("Postorder Traversal");
+        integerAVLTree.postOrder();
+        System.out.println("\n------------------");
+        System.out.println("Value 20 exists? " + integerAVLTree.contains(20));
+        System.out.println("------------------");
+        System.out.println("Value 30 exists? " + integerAVLTree.contains(30));
+        System.out.println("------------------");
+        System.out.println("Value 100 exists? " + integerAVLTree.contains(100));
+        System.out.println("------------------");
+        integerAVLTree.delete(30);
+        System.out.println("Value 30 exists? " + integerAVLTree.contains(30));
+        System.out.println("------------------");
+        integerAVLTree.printTree();
+        System.out.println("\n------------------");
     }
 }
