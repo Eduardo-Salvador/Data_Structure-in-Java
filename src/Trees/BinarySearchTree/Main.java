@@ -41,6 +41,10 @@ public class Main {
         System.out.println("------------------");
         integerBinarySearchTree.printTree();
         System.out.println("\n------------------");
+        System.out.println("Balanced? " + integerBinarySearchTree.isBalanced());
+        System.out.println("------------------");
+        System.out.println("Height: " + integerBinarySearchTree.height());
+        System.out.println("------------------");
 
         System.out.println("AVL Tree");
         System.out.println("------------------");
@@ -54,7 +58,14 @@ public class Main {
         integerAVLTree.insert(11);
         integerAVLTree.insert(12);
         integerAVLTree.insert(13);
-        integerAVLTree.printTree();
+        integerAVLTree.printDetailed();
+        System.out.println("------------------");
+        System.out.println("10 Successor (In-Order Rule): " + integerAVLTree.successor(10));
+        System.out.println("10 Predecessor (In-Order Rule): " + integerAVLTree.predecessor(10));
+        System.out.println("------------------");
+        System.out.println("Balanced? " + integerAVLTree.isBalanced());
+        System.out.println("------------------");
+        System.out.println("Height: " + integerAVLTree.height());
         System.out.println("------------------");
         System.out.println("Preorder Traversal");
         integerAVLTree.preOrder();
@@ -74,7 +85,7 @@ public class Main {
         integerAVLTree.delete(30);
         System.out.println("Value 30 exists? " + integerAVLTree.contains(30));
         System.out.println("------------------");
-        integerAVLTree.printTree();
+        integerAVLTree.printDetailed();
         System.out.println("\n------------------");
     }
 }

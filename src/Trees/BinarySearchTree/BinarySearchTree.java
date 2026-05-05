@@ -147,4 +147,62 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 
         printTree(node.getLeft(), level + 1);
     }
+
+    public T successor(T value) {
+        Node<T> node = containsNode(value);
+        if (node == null) return null;
+
+        if (node.getRight() != null) {
+            return findMinNode(node.getRight()).getValue();
+        }
+
+        Node<T> successor = null;
+        Node<T> current = root;
+
+        while (current != null) {
+            int compareValue = value.compareTo(current.getValue());
+
+            if (compareValue < 0) {
+                successor = current;
+                current = current.getLeft();
+            } else if (compareValue > 0) {
+                current = current.getRight();
+            } else {
+                break;
+            }
+        }
+
+        return (successor != null) ? successor.getValue() : null;
+    }
+
+    public T predecessor(T value) {
+        Node<T> node = containsNode(value);
+        if (node == null) return null;
+
+        if (node.getLeft() != null) {
+            Node<T> current = node.getLeft();
+            while (current.getRight() != null) {
+                current = current.getRight();
+            }
+            return current.getValue();
+        }
+
+        Node<T> predecessor = null;
+        Node<T> current = root;
+
+        while (current != null) {
+            int cmp = value.compareTo(current.getValue());
+
+            if (cmp > 0) {
+                predecessor = current;
+                current = current.getRight();
+            } else if (cmp < 0) {
+                current = current.getLeft();
+            } else {
+                break;
+            }
+        }
+
+        return (predecessor != null) ? predecessor.getValue() : null;
+    }
 }

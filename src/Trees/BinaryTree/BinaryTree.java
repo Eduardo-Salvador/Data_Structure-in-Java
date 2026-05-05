@@ -86,4 +86,34 @@ public class BinaryTree<T> {
         postOrder(current.getRight());
         System.out.print(current.getValue() + " ");
     }
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node<T> node) {
+        if (node == null) return -1;
+
+        int left = height(node.getLeft());
+        int right = height(node.getRight());
+
+        return 1 + Math.max(left, right);
+    }
+
+    public boolean isBalanced() {
+        return checkBalance(root) != -2;
+    }
+
+    private int checkBalance(Node<T> node) {
+        if (node == null) return -1;
+        int left = checkBalance(node.getLeft());
+
+        if (left == -2) return -2;
+        int right = checkBalance(node.getRight());
+
+        if (right == -2) return -2;
+        if (Math.abs(left - right) > 1) return -2;
+        
+        return 1 + Math.max(left, right);
+    }
 }
