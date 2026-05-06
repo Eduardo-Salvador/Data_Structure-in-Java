@@ -35,15 +35,20 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
     }
 
     private Node<T> fixInsert(Node<T> node) {
-        if (isRed(node.getLeft()) && isRed(node.getRight())) {
-            node.setColor(Color.RED);
-            node.getLeft().setColor(Color.BLACK);
-            node.getRight().setColor(Color.BLACK);
+        if (isRed(node.getLeft()) && isRed(node.getLeft().getRight())) {
+            node.setLeft(rotateLeft(node.getLeft()));
         }
+
         if (isRed(node.getLeft()) && isRed(node.getLeft().getLeft())) {
             node = rotateRight(node);
             node.setColor(Color.BLACK);
             node.getRight().setColor(Color.RED);
+        }
+
+        if (isRed(node.getLeft()) && isRed(node.getRight())) {
+            node.setColor(Color.RED);
+            node.getLeft().setColor(Color.BLACK);
+            node.getRight().setColor(Color.BLACK);
         }
 
         return node;
@@ -66,5 +71,75 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
         node.setRight(temp.getLeft());
         temp.setLeft(node);
         return temp;
+    }
+
+    @Override
+    public void delete(T value) {
+        root = delete(root, value);
+        if (root != null) root.setColor(Color.BLACK);
+    }
+
+    private Node<T> delete(Node<T> node, T value) {
+        if (node == null) return null;
+
+        if (value.compareTo(node.getValue()) < 0) {
+            node.setLeft(delete(node.getLeft(), value));
+        } else if (value.compareTo(node.getValue()) > 0) {
+            node.setRight(delete(node.getRight(), value));
+        } else {
+            if (node.getLeft() == null && node.getRight() == null) {
+                return null;
+            }
+            if (node.getLeft() == null) return node.getRight();
+            if (node.getRight() == null) return node.getLeft();
+
+            Node<T> successor = getMin(node.getRight());
+            node.setValue(successor.getValue());
+            node.setRight(delete(node.getRight(), successor.getValue()));
+        }
+
+        node = fixDelete(node);
+        return node;
+    }
+
+    private Node<T> getMin(Node<T> node) {
+        while (node.getLeft() != null) node = node.getLeft();
+        return node;
+    }
+
+    private Node<T> fixDelete(Node<T> node) {
+        if (isRed(node.getRight()) && !isRed(node.getLeft())) {
+            node = rotateLeft(node);
+            node.setColor(node.getRight().getColor());
+            node.getLeft().setColor(Color.BLACK);
+            node.getRight().setColor(Color.BLACK);
+            return node;
+        }
+
+        if (!isRed(node.getRight()) && isRed(node.getRight().getLeft())) {
+            node.setRight(rotateRight(node.getRight()));
+            node.getRight().setColor(Color.BLACK);
+            node.getRight().getRight().setColor(Color.RED);
+            return fixDelete(node);
+        }
+
+        if (isRed(node.getLeft()) && !isRed(node.getRight())) {
+            node = rotateRight(node);
+            node.setColor(node.getLeft().getColor());
+            node.getRight().setColor(Color.BLACK);
+            node.getLeft().setColor(Color.BLACK);
+            return node;
+        }
+
+
+        if (!isRed(node.getLeft()) && !isRed(node.getRight())) {
+            if (isRed(node)) {
+                node.setColor(Color.BLACK);
+            } else {
+                node.setColor(Color.RED);
+            }
+        }
+
+        return node;
     }
 }
