@@ -13,12 +13,12 @@
 #### [Non-Linear Structures](#non-linear-structures--estruturas-não-lineares)
 #### [Advanced Structures](#advanced-structures--estruturas-avançadas)
 #### [Optimization Exercises](#optimization-exercises)
-#### [Algorithms](#algorithms--algoritmos)
+#### [E_Algorithms](#algorithms--algoritmos)
 #### [Highlighted Results](#highlighted-results)
 
 ---
 
-# Data Structure and Algorithms in Java
+# Data Structure and E_Algorithms in Java
 
 ---
 
@@ -32,10 +32,10 @@ Um projeto de estudo sobre estruturas de dados e algoritmos em Java, focado no a
 
 This project covers the study of data structures and algorithms, including:
 
-**Linear Structures (Stacks, Queues, Lists, Deques)  
-Non-Linear Structures (Trees, Graphs)  
+**Linear Structures (A_LinearStructures.c_Stacks, A_LinearStructures.d_Queues, A_LinearStructures.b_Lists, A_LinearStructures.e_Deques)  
+Non-Linear Structures (B_Trees, Graphs)  
 Advanced Structures (Hash Tables)  
-Searching and Sorting Algorithms  
+Searching and Sorting E_Algorithms  
 Recursion  
 Optimization Exercises  
 Complexity Analysis (Big O)**
@@ -46,7 +46,7 @@ Complexity Analysis (Big O)**
 
 Este projeto cobre o estudo de estruturas de dados e algoritmos, incluindo:
 
-**Estruturas Lineares (Pilhas, Filas, Listas, Deques)  
+**Estruturas Lineares (Pilhas, Filas, Listas, A_LinearStructures.e_Deques)  
 Estruturas Não Lineares (Árvores, Grafos)  
 Estruturas Avançadas (Tabelas Hash)  
 Algoritmos de Busca e Ordenação  
@@ -176,7 +176,7 @@ Análise de Complexidade (Big O)**
 - O(logN) → **Logarithmic** (Ex: Binary search)
 - O(n) → **Linear** (Ex: Traversing a list)
 - O(n log N) → **Good for sorting algorithms**
-- O(n²) → **Bad:** Algorithms with many nested loops
+- O(n²) → **Bad:** E_Algorithms with many nested loops
 - **Time complexity** → execution time
 - **Space complexity** → memory usage
 - **Time** = how many times you *process* data
@@ -230,34 +230,34 @@ Análise de Complexidade (Big O)**
 
 ---
 
-### Arrays:
+### A_LinearStructures.a_Arrays:
 
 [Click here for read in English](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/blob/main/src/Arrays/README.md) | [Click here for read in Portuguese-BR](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/blob/main/src/Arrays/README_PT_BR.md)
 
 ---
 
-### Stacks:
+### A_LinearStructures.c_Stacks:
 Implementations, operations, and complexities of the Stack data structure. Includes conceptual coverage of the JVM Call Stack.
 
 [Click here for read in English](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/blob/main/src/Stacks/README.md) | [Click here for read in Portuguese-BR](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/blob/main/src/Stacks/README_PT_BR.md)
 
 ---
 
-### Queues:
+### A_LinearStructures.d_Queues:
 Implementations, operations, and complexities of the Queue data structure.
 
 [Click here for read in English](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/tree/main/src/Queues/README.md) | [Click here for read in Portuguese-BR](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/tree/main/src/Queues/README_PT_BR.md)
 
 ---
 
-### Lists:
+### A_LinearStructures.b_Lists:
 Implementations, operations, and complexities of the List data structure.
 
 [Click here for read in English](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/tree/main/src/Lists/README.md) | [Click here for read in Portuguese-BR](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/tree/main/src/Lists/README_PT_BR.md)
 
 ---
 
-### Deques:
+### A_LinearStructures.e_Deques:
 Implementations, operations, and complexities of the Deque data structure.
 
 [Click here for read in English](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/tree/main/src/Deques/README.md) | [Click here for read in Portuguese-BR](https://github.com/Eduardo-Salvador/Data_Strutcture-in-Java/tree/main/src/Deques/README_PT_BR.md)
@@ -279,7 +279,7 @@ Classical optimization problems solved by applying the right data structure to r
 
 ---
 
-## Algorithms | Algoritmos:
+## E_Algorithms | Algoritmos:
 
 ### Recursion:
 Recursive strategies, base case structure, and practical implementations.

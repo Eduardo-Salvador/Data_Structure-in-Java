@@ -1,0 +1,93 @@
+package B_Trees.b_BinarySearchTree;
+
+import B_Trees.d_AVLTree.AVLTree;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Binary Search Tree");
+        System.out.println("------------------");
+
+        BinarySearchTree<Integer> integerBinarySearchTree = new BinarySearchTree<>();
+        integerBinarySearchTree.insert(10);
+        integerBinarySearchTree.insert(4);
+        integerBinarySearchTree.insert(30);
+        integerBinarySearchTree.insert(11);
+        integerBinarySearchTree.insert(32);
+        integerBinarySearchTree.insert(7);
+        integerBinarySearchTree.insert(11);
+        integerBinarySearchTree.insert(12);
+        integerBinarySearchTree.insert(13);
+        integerBinarySearchTree.printTree();
+        System.out.println("------------------");
+        System.out.println("Preorder Traversal");
+        integerBinarySearchTree.preOrder();
+        System.out.println("\n------------------");
+        System.out.println("Inorder Traversal");
+        integerBinarySearchTree.inOrder();
+        System.out.println("\n------------------");
+        System.out.println("Postorder Traversal");
+        integerBinarySearchTree.postOrder();
+        System.out.println("\n------------------");
+        System.out.println("Value 20 exists? " + integerBinarySearchTree.contains(20));
+        System.out.println("------------------");
+        System.out.println("Value 30 exists? " + integerBinarySearchTree.contains(30));
+        System.out.println("------------------");
+        System.out.println("Value 100 exists? " + integerBinarySearchTree.contains(100));
+        System.out.println("------------------");
+        System.out.println("Max value: " + integerBinarySearchTree.findMax());
+        System.out.println("------------------");
+        System.out.println("Min value: " + integerBinarySearchTree.findMin());
+        System.out.println("------------------");
+        integerBinarySearchTree.delete(30);
+        System.out.println("Value 30 exists? " + integerBinarySearchTree.contains(30));
+        System.out.println("------------------");
+        integerBinarySearchTree.printTree();
+        System.out.println("\n------------------");
+        System.out.println("Balanced? " + integerBinarySearchTree.isBalanced());
+        System.out.println("------------------");
+        System.out.println("Height: " + integerBinarySearchTree.height());
+        System.out.println("------------------");
+
+        System.out.println("AVL Tree");
+        System.out.println("------------------");
+        AVLTree<Integer> integerAVLTree = new AVLTree<>();
+        integerAVLTree.insert(10);
+        integerAVLTree.insert(4);
+        integerAVLTree.insert(30);
+        integerAVLTree.insert(11);
+        integerAVLTree.insert(32);
+        integerAVLTree.insert(7);
+        integerAVLTree.insert(11);
+        integerAVLTree.insert(12);
+        integerAVLTree.insert(13);
+        integerAVLTree.printDetailed();
+        System.out.println("------------------");
+        System.out.println("10 Successor (In-Order Rule): " + integerAVLTree.successor(10));
+        System.out.println("10 Predecessor (In-Order Rule): " + integerAVLTree.predecessor(10));
+        System.out.println("------------------");
+        System.out.println("Balanced? " + integerAVLTree.isBalanced());
+        System.out.println("------------------");
+        System.out.println("Height: " + integerAVLTree.height());
+        System.out.println("------------------");
+        System.out.println("Preorder Traversal");
+        integerAVLTree.preOrder();
+        System.out.println("\n------------------");
+        System.out.println("Inorder Traversal");
+        integerAVLTree.inOrder();
+        System.out.println("\n------------------");
+        System.out.println("Postorder Traversal");
+        integerAVLTree.postOrder();
+        System.out.println("\n------------------");
+        System.out.println("Value 20 exists? " + integerAVLTree.contains(20));
+        System.out.println("------------------");
+        System.out.println("Value 30 exists? " + integerAVLTree.contains(30));
+        System.out.println("------------------");
+        System.out.println("Value 100 exists? " + integerAVLTree.contains(100));
+        System.out.println("------------------");
+        integerAVLTree.delete(30);
+        System.out.println("Value 30 exists? " + integerAVLTree.contains(30));
+        System.out.println("------------------");
+        integerAVLTree.printDetailed();
+        System.out.println("\n------------------");
+    }
+}
