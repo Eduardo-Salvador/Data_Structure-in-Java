@@ -24,6 +24,25 @@ public class ArrayList<T> extends ArrayStructure<T> {
         this.elements[index] = element;
     }
 
+    //O(n)
+    public void addFirst(T element) {
+        if (this.elements[0] == null) {
+            this.elements[0] = element;
+            this.size++;
+            return;
+        }
+        add(0, element);
+    }
+
+    public void addLast(T element) {
+        if (this.elements[this.size - 1] == null) {
+            this.elements[this.size - 1] = element;
+            this.size++;
+            return;
+        }
+        add(this.size, element);
+    }
+
     //O(1) or O(n) If you use the method increaseCapacity
     public void add(T element) {
         super.add(element);

@@ -20,6 +20,9 @@ public class Main {
         arrayList.add(10.12);
         arrayList.add(4, 10.33);
         System.out.println(arrayList);
+        arrayList.addFirst(3.00);
+        arrayList.addLast(4.00);
+        System.out.println(arrayList);
         System.out.println(arrayList.get(4));
         System.out.println(arrayList.remove(11));
         System.out.println(arrayList);
