@@ -1,5 +1,4 @@
 package B_Trees.e_RedBlackTree;
-import B_Trees.a_BinaryTree.Color;
 import B_Trees.a_BinaryTree.Node;
 import B_Trees.b_BinarySearchTree.BinarySearchTree;
 
@@ -140,7 +139,6 @@ public class RedBlackTree<T extends Comparable<T>> extends BinarySearchTree<T> {
                 node.setColor(Color.RED);
             }
         }
-
         return node;
     }
 }

@@ -18,6 +18,20 @@ public class ArrayList<T> extends ArrayStructure<T> {
         return this.elements[index];
     }
 
+    public T getFirst() throws NoSuchElementException {
+        if (this.isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+        return this.elements[0];
+    }
+
+    public T getLast() throws NoSuchElementException {
+        if (this.isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+        return this.elements[this.elements.length - 1];
+    }
+
     //O(1)
     public void set(int index, T element) throws IndexOutOfBoundsException {
         checkIndex(index);
